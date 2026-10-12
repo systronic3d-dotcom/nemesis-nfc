@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1627">
+  <title>NÉMÉSIS — Contact</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #0b1627;
+      color: #f5f7fa;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    main {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+    .symbol {
+      color: #48a7ed;
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 35px;
+      letter-spacing: 4px;
+      margin: 0 0 10px;
+    }
+    .subtitle {
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      color: #b9c8d8;
+      text-transform: uppercase;
+    }
+    .speciality {
+      color: #65b8f5;
+      margin: 24px 0 30px;
+      font-size: 15px;
+    }
+    .name {
+      font-size: 19px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .location {
+      color: #b9c8d8;
+      margin-bottom: 30px;
+    }
+    a.action {
+      display: block;
+      padding: 17px;
+      margin: 12px 0;
+      border: 1px solid #426483;
+      border-radius: 9px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    a.primary {
+      background: #258cdb;
+      border-color: #258cdb;
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 36px;
+      color: #8498ab;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="symbol">⬡</div>
+    <h1>NÉMÉSIS</h1>
+    <div class="subtitle">Atelier de Réparation Technique</div>
+    <div class="speciality">
+      Diagnostic · Réparation · Adaptation · Prototypage 3D
+    </div>
+
+    <div class="name">Mallory COULMEAUX</div>
+    <div class="location">Épernay · Marne</div>
+
+    <a class="action primary" id="saveContact" href="#">
+      Enregistrer le contact
+    </a>
+    <a class="action" href="tel:+33626872993">
+      Appeler l'atelier
+    </a>
+    <a class="action" href="mailto:contact@atelier-nemesis.fr">
+      Envoyer un e-mail
+    </a>
+    <a class="action" href="https://atelier-nemesis.fr">
+      Site Internet
+    </a>
+
+    <footer>
+      NÉMÉSIS — Nom commercial de Mallory COULMEAUX EI
+    </footer>
+  </main>
+
+  <script>
+    const vcard = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      "N:COULMEAUX;Mallory;;;",
+      "FN:Mallory COULMEAUX",
+      "ORG:NÉMÉSIS - Atelier de Réparation Technique",
+      "TITLE:Diagnostic et réparation électronique",
+      "TEL;TYPE=WORK,CELL:+33626872993",
+      "EMAIL;TYPE=WORK:contact@atelier-nemesis.fr",
+      "URL:https://atelier-nemesis.fr",
+      "END:VCARD"
+    ].join("\r\n") + "\r\n";
+
+    const blob = new Blob([vcard], {
+      type: "text/vcard;charset=utf-8"
+    });
+    const contactUrl = URL.createObjectURL(blob);
+    const link = document.getElementById("saveContact");
+    link.href = contactUrl;
+    link.download = "NEMESIS-Mallory-COULMEAUX.vcf";
+  </script>
+</body>
+</html>
